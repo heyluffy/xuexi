@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  ## 总结
+  * reject(),error 有第二个函数接收，则第二个，不然就是catch
+  * 两种Promise实例，一种是异步的需要代码里手动执行回调函数，一种是同步的Promise构造函数下面挂载的实例化方法 Promise.reject('111') 生成同步实例，直接可以then获取返回值
+  * 任何地方直接return非promise实例的值，第一个函数接收，return Promise实例根据实际情况来接收
+    （任何then()和catch()都返回promise实例，return普通值，则类似同步执行了resolve，return Promise实例则默认实例被return实例替换）
+  * catch接收以上链式的promise实例的reject和error
+  <script>
+    // const p = new Promise((resolve, reject) => {
+    //   // resolve('resolve');
+    //   // reject('reject')
+    // });
+
+    // 只有then的第一个回调函数
+    // p.then((res) => {
+    //   console.log(res); // 只接受resolve
+    // })
+    
+    // then中两个函数
+    // p.then((res) => {
+    //   console.log(res); // 只接受resolve
+    // }, (res) => {
+    //   console.log(res); // 只接受reject
+    // })
+
+    // 第一个函数和catch
+    // p.then((res) => {
+    // }).catch((res) => {
+    //   console.log(res); // reslove被接受
+    // })
+
+    // 写全
+    // p.then((res) => {
+    // }, (res) => {
+    //   console.log('1' + res); // 接受reject
+    // }).catch((res) => {
+    //   console.log('2' + res); // 不接受reject
+    // })
+    
+    // 直接返回Promise.reject('reject')实例
+    // const p = new Promise((resolve, reject) => {
+    //   resolve();
+    // }).then(() => {
+    //    return Promise.reject('reject'); // 直接生成一个promise 回调函数reject的实例
+    // })
+
+    // p.then((res) => {
+    //   console.log(1 + res); // 只接受resolve
+    // }, (res) => {
+    //   console.log(2 + res); // 只接受reject
+    // })
+
+    // 三个位置直接return
+    const p = new Promise((resolve, reject) => {
+      resolve(); // 第一个函数
+      // reject('aaa'); // 第二个函数
+      // catch 有第二个函数进的是第二个函数
+      // catch1 
+      // const error  = new Error();
+      // throw error;
+      // catch2
+      // console(bbb);
+    }).then(() => {
+      // return 1;
+      return Promise.reject('1reject');
+    }, (res) => {
+      console.log(2 + res);
+      // throw new Error('error111');
+      // return Promise.reject(res + '2');
+    }).catch((error) => {
+      console.log(3 + error)
+      return 3;
+    });
+
+    // 三个位置的普通return都进入第一个函数
+    p.then((res) => {
+      console.log('' + 1 + res);
+    }, (res) => {
+      console.log('' + 2 + res);
+    }).catch((res) => {
+      console.log('' + 3 + res);
+    })
+  </script>
+</body>
+</html>

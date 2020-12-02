@@ -1,0 +1,97 @@
+<html>
+
+<head>
+
+  <title>js指定区域全屏</title>
+
+  <style>
+    #fulldiv {
+
+      background: #fff;
+
+      width: 100%;
+
+      text-align: center;
+
+      height: 100%;
+
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>指定区域全屏测试</h1>
+
+  <button id="btn">全屏按钮</button>
+
+  <div id="content-main">
+
+    <img src="C:\Users\guobin\Desktop\IMG_3163.PNG" />
+
+  </div>
+
+</body>
+
+<script>
+
+  var fullscreen = false;
+
+  let btn = document.getElementById('btn');
+
+  let fullarea = document.getElementById('content-main')
+
+  btn.addEventListener('click', function () {
+
+    if (fullscreen) {       // 退出全屏
+
+      if (document.exitFullscreen) {
+
+        document.exitFullscreen();
+
+      } else if (document.webkitCancelFullScreen) {
+
+        document.webkitCancelFullScreen();
+
+      } else if (document.mozCancelFullScreen) {
+
+        document.mozCancelFullScreen();
+
+      } else if (document.msExitFullscreen) {
+
+        document.msExitFullscreen();
+
+      }
+
+    } else {        // 进入全屏
+
+      if (fullarea.requestFullscreen) {
+
+        fullarea.requestFullscreen();
+
+      } else if (fullarea.webkitRequestFullScreen) {
+
+        fullarea.webkitRequestFullScreen();
+
+      } else if (fullarea.mozRequestFullScreen) {
+
+        fullarea.mozRequestFullScreen();
+
+      } else if (fullarea.msRequestFullscreen) {
+
+        // IE11
+
+        fullarea.msRequestFullscreen();
+
+      }
+
+    }
+
+    fullscreen = !fullscreen;
+
+  })
+
+</script>
+
+</html>

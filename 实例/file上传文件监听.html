@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>file上传监听</title>
+</head>
+<body>
+  <input type="file" id="file" onchange="handleChange(this)" />
+  <script>
+    function handleChange(target) {
+      console.log(target.files); // event.files 类数组对象
+      console.log(target.files[0]); // File对象
+      console.log(document.getElementById('file').files);
+    }
+  </script>
+</body>
+</html>

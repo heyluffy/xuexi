@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>创建blob对象</title>
+</head>
+<body>
+  <script>
+    const data1 = 'a';
+    const data2 = 'b';
+    const data3 = '<div style="color: red;">This is a blob</div>';
+    const data4 = { name: 'abcde' };
+
+    // 创建blob对象
+    const blob1 = new Blob([data1]);
+    const blob2 = new Blob([data1, data2]);
+    const blob3 = new Blob([data3], { type: 'text/html' });
+    const blob4 = new Blob([JSON.stringify(data4)]); // {"name":"abcde"}
+    const blob5 = new Blob([data4]); // data4.toString() -> [object object]
+
+    console.log(blob1); // Blob { size: 1, type: '' }
+    console.log(blob2); // Blob { size: 2, type: '' }
+    console.log(blob3); // Blob { size: 45, type: 'text/html' }
+    console.log(blob4); // Blob { size: 16, type: '' }
+    console.log(blob5);  // Blob { size: 15, type: ''}
+
+  </script>
+</body>
+</html>

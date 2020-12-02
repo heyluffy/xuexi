@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>background-position 百分比</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      background: #aaa url(./assets/images/bg.jpeg) no-repeat;
+      background-size: 300px auto;
+      background-position: 0% 0%;
+    }
+  </style>
+</head>
+<body>
+  <div id="box" class="box"></div>
+  x: <input id="input1" value="" /> %
+  y: <input id="input2" value="" /> %
+  <button onclick="handleClick()">set background-position</button>
+  <script>
+    const input1 = document.getElementById('input1');
+    const input2 = document.getElementById('input2');
+    const box = document.getElementById('box');
+    function handleClick() {
+      const x = input1.value;
+      const y = input2.value;
+      if (/^\d+$/.test(x) && /^\d+$/.test(y)) {
+        box.style['backgroundPositionX'] = x + '%';
+        box.style['backgroundPositionY'] = y + '%';
+      } else {
+        alert('请正确输入backgroun-positon的x,y值');
+      }
+    }
+  </script>
+</body>
+</html>

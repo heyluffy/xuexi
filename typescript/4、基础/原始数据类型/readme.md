@@ -1,4 +1,3 @@
-
 ## 原始数据类型
 js的类型
 * 原始数据类型
@@ -45,4 +44,38 @@ let infinityNumber: number = Infinity;
 * 0o 八进制 （es6）
 * NaN 非数值
 * Infinity 无穷大
+
+ts支持es6、es7、es8，在编译后会转成es5
+二进制和八进制是es6，所以编译后转成十进制
+
+
+**string**
+```
+// string
+let myName: string = 'Tom';
+// 模板字符串
+let sentence = `Hello my name is ${ myName }`; // es6 编译后es5
+```
+模板字符串
+
+**空值**
+```
+// void表示函数没有任何值返回
+function alertName(): void {
+  alert('My name is Tom');
+}
+```
+**Null和Undefined**
+```
+// Null和Undefined
+let u: undefined = undefined;
+let n: null = null;
+
+// null和undefined是所有类型的子类型
+let num: number = undefined;
+let u1: undefined;
+let num1: number = u1;
+```
+
+
 

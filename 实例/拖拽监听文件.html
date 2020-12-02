@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽监听文件</title>
+  <style>
+    .boxing {
+      width: 300px;
+      height: 200px;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div contentEditable='true' readonly="true" class="boxing" ondrop="handleDrop(event)">
+    拖到此处上传
+  </div>
+  <!-- <div contentEditable='true' readonly="true" class="boxing" ondrop="handleDrop(this)"> 传this为target
+    拖到此处上传
+  </div> -->
+  <script>
+    function handleDrop(event) {
+      event.preventDefault();
+      console.log(event.dataTransfer.files);
+    }
+  </script>
+</body>
+</html>

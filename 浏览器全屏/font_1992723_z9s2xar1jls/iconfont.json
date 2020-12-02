@@ -1,0 +1,86 @@
+{
+  "id": "1992723",
+  "name": "my-iconfont",
+  "font_family": "iconfont",
+  "css_prefix_text": "aa-icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11055802",
+      "name": "箭头",
+      "font_class": "down",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "15509502",
+      "name": "箭头",
+      "font_class": "arror-up",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "5119114",
+      "name": "箭头 上升",
+      "font_class": "jiantoushangsheng",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "15754795",
+      "name": "直升飞机",
+      "font_class": "zhishengfeiji",
+      "unicode": "e71f",
+      "unicode_decimal": 59167
+    },
+    {
+      "icon_id": "6940842",
+      "name": "map",
+      "font_class": "map",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "6940847",
+      "name": "地点",
+      "font_class": "didian",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "6940846",
+      "name": "箭头",
+      "font_class": "jiantou",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "7275252",
+      "name": "VR (3D) 2 (Filled)",
+      "font_class": "VRDFilled",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "7573258",
+      "name": "vr",
+      "font_class": "vr",
+      "unicode": "e6f6",
+      "unicode_decimal": 59126
+    },
+    {
+      "icon_id": "7594027",
+      "name": "24gl-fullScreenEnter3",
+      "font_class": "fullscreen",
+      "unicode": "ea68",
+      "unicode_decimal": 60008
+    },
+    {
+      "icon_id": "7594030",
+      "name": "24gl-fullScreenExit3",
+      "font_class": "24gl-fullScreenExit3",
+      "unicode": "ea69",
+      "unicode_decimal": 60009
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div">
+    <button onclick="exitScreen()">退出全屏</button>
+    <button onclick="fullscreenImg()">容器全屏</button>
+    <img id="img" src="bg.jpg" width="300"/>
+  </div>
+  <button onclick="fullscreen()">全屏</button>
+  <script>
+    function fullscreen() {
+      const el = document.documentElement;
+      var rfs = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+      if (rfs) {
+        rfs.call(el);
+      }
+    }
+    function fullscreenImg() {
+      // const el = document.getElementById('img');
+      const el = document.getElementById('div');
+      var rfs = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+      if (rfs) {
+        rfs.call(el);
+      }
+    }
+    function exitScreen() {
+      var el = document.documentElement;
+      var fn = document.exitFullscreen || document.mozCancelFullScreen || document.webkitCancelFullScreen || document.msExitFullscreen;
+      if (fn) {
+        fn.call(document);
+      }
+    }
+    function checkFullScreen() {
+      var isFull = document.fullscreenElement    ||
+                   document.msFullscreenElement  ||
+                   document.mozFullScreenElement ||
+                   document.webkitFullscreenElement;
+      return !!isFull;
+    }
+  </script>
+</body>
+</html>
