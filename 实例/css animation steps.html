@@ -41,7 +41,7 @@
         background-position-y: 0;
       }
       100% {
-        background-position-y: 1;
+        background-position-y: -140px;
       }
     }
     /* 自适应 */
@@ -49,7 +49,7 @@
       height: 100px;
       background: url(./assets/images/rabbit.png) center top no-repeat;
       background-size: auto 400%;
-      animation: move2 3s infinite steps(4);
+      animation: move2 0.5s infinite steps(4);
       background-position-y: 0%;
     }
     @keyframes move2 {
@@ -60,10 +60,23 @@
         background-position-y: 133.3%;
       }
     }
+    .loading {
+      animation: loading 0.6s infinite steps(8);
+    }
+    @keyframes loading {
+      0%  {
+        transform: rotate(0);
+      }
+      100%  {
+        transform: rotate(360deg);
+      }
+    }
   </style>
 </head>
 <body>
     <div class="box"></div>
+    <div class="gif"></div>
     <div class="gif2"></div>
+    <img class="loading" src="./assets/images/loading.jpeg" />
 </body>
 </html>

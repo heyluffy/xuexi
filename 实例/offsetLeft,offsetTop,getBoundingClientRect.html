@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=O, initial-scale=1.0">
+  <title>offsetLeft,offsetTop,getBoundingClientRect</title>
+  <style>
+    html, body {
+      padding: 0px;
+      margin: 0px;
+    }
+    .box {
+      position: relative;
+      height: 500px;
+      padding: 50px;
+      margin: 10px;
+      border: 1px solid #aaa;
+      background: #aaa;
+      overflow: auto;
+    }
+    .content {
+      width: 60%;
+      height: 800px;
+      padding-top: 1px;
+      margin-top: -1px;
+      background: #ccc;
+    }
+    .detial {
+      width: 50%;
+      height: 20px;
+      margin-top: 50px;
+      border: 1px solid #aaa;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="content">
+      <div class="detial"></div>
+    </div>
+  </div>
+  <script>
+    // offsetLeft offsetTop 是相对于定位父级文档流包括padding
+    const box = document.querySelector('.box');
+    const detial = document.querySelector('.detial');
+    const rectObj = detial.getBoundingClientRect(); // 返回包含所有元素的最小矩形对象
+    console.log('detial', detial); // 一个dom
+    console.log('offsetTop', detial.offsetTop); // 100
+    console.log('rectObj.top', rectObj.top);
+    console.log('rectObj.left', rectObj.left);
+    console.log('rectObj.right', rectObj.right);
+    console.log('rectObj.height', rectObj.height);
+    box.scrollTop = 100;
+    console.log('offsetTop', detial.offsetTop); // 100
+    
+
+  </script>
+</body>
+</html>

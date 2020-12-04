@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scrollWdith</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      background: yellow;
+    }
+    .box2 {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      background: blue;
+    }
+    .content {
+      width: 500px;
+      height: 20px;
+      background: red;
+    }
+    .content2 {
+      width: 210px;
+      height: 20px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="content"></div>
+  </div>
+  <div class="box2">
+    <div class="content2"></div>
+  </div>
+  <script>
+    const box = document.querySelector('.box');
+    const box2 = document.querySelector('.box2');
+    // scrollWidth 文档流宽度（包括padding的） 为可视区+内容超出部分
+    console.log('box.scrollWidth', box.scrollWidth); // 520
+    console.log('box2.scrollWidth', box2.scrollWidth); // 240
+  </script>
+</body>
+</html>
