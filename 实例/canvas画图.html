@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      position: relative;
+    }
+    .img {
+      position: absolute;
+      animation: 1s ease fudong infinite alternate ;
+    }
+    @keyframes fudong {
+      0% {
+        transform: translate3d(0, -10px, 0);
+      }
+      100% {
+        transform: translate3d(0, 10px, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <div id="container" class="container"></div>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const container = document.getElementById('container');
+    const image = new Image();
+    // image.src = './assets/images/dmtx.jpg';
+    image.src = './assets/images/ma.png';
+    image.onload = function() {
+      canvas.width = image.width;
+      canvas.height = image.height;
+      ctx.drawImage(image, 0, 0); // 本页面和图不在同源，属于跨域，所以需要在服务端运行（然他们属于同源） 
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data; // 获取图片每个像素点的rgba值 [r, g, b, a, r, g, b, a...]
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      const gap = 6;
+      for (let h = 0; h < canvas.height; h += gap) {
+        for (let w = 0; w < canvas.width; w += gap ) {
+          const position = (canvas.width * h + w) * 4;
+          const r = imageData[position];
+          const g = imageData[position + 1];
+          const b = imageData[position + 2];
+          // dmtx.jpg
+          // if (r !== 202 || g !== 201 || b !== 197) {
+          //   ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 1)`;
+          //   ctx.fillRect(w, h, 4, 4);
+          // }
+          if (r + g + b === 0) {
+            ctx.fillStyle = '#000';
+            ctx.fillRect(w, h, 4, 4);
+            drawInContainer(w, h, './assets/images/m1.png');
+          }
+        }
+      }
+    };
+    function drawInContainer(w, h, url) {
+      const img = document.createElement('img');
+      // const drawScale = 3;
+      // const size = Math.random() * 20 + 30;
+      const drawScale = 3;
+      const size = 20;
+      img.src = url;
+      img.setAttribute('class', 'img');
+      img.style.animationDuration = (Math.random() * 3 + 5) + 's';
+      // img.style.position = 'absolute';
+      img.style.left = w * drawScale + 'px';
+      img.style.top = h * drawScale + 'px';
+      img.style.width = size + 'px';
+      img.style.height = size + 'px';
+      container.appendChild(img);
+    }
+
+  </script>
+</body>
+</html>
